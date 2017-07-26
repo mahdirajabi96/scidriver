@@ -34,23 +34,41 @@
     <script>
 
         var map;
+<<<<<<< HEAD
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
             zoom: 5,
             center: {lat: 32, lng: -82},
             mapTypeId: 'terrain'
+=======
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 5,
+          center: {lat: 32, lng: -82},
+          mapTypeId: 'terrain'
+>>>>>>> bbeb28693bcd50e040e27cc768c96413e5fca028
         });
 
         var crashdata = [];
+        document.write("We ARE HERE")
         $(function () {
             $.getJSON('https://scidriver.herokuapp.com/static/crashdata.json', function (data) {
                 $.each(data.crash, function (i, f) {
                     var latLng = [f.LAT, f.LON];
+<<<<<<< HEAD
                     crashdata.append(latLng);
                 });
             });
         });
 
+=======
+                    document.write(f.LAT);
+                    crashdata.push(latLng);
+                });
+            });
+        });
+        document.write(crashdata)
+>>>>>>> bbeb28693bcd50e040e27cc768c96413e5fca028
         eqfeed_callback(crashdata)
       }
 
