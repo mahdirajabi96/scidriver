@@ -17,37 +17,22 @@
              padding: 0;
          }
     </style>
-    <script>
-
-
-    </script>
 </head>
 <body>
-
-    <!--
-        
-        {% block content %}{% endblock %}-->
+    <!--{% block content %}{% endblock %}-->
     <h1>Texas Crash Heatmap</h1>
     <p>This page shows the heatmap for a sample of Texas highway crashes for 2015 crash database. The heatmaps will be used in this project to show the clusters of similar crashes (or hotspots). </p>
 
     <div id="map"></div>
     <script>
-
         var map;
-<<<<<<< HEAD
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 5,
-            center: {lat: 32, lng: -82},
-            mapTypeId: 'terrain'
-=======
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 5,
-          center: {lat: 32, lng: -82},
-          mapTypeId: 'terrain'
->>>>>>> bbeb28693bcd50e040e27cc768c96413e5fca028
-        });
+                zoom: 5,
+                center: {lat: 32, lng: -82},
+                mapTypeId: 'terrain'
+            });
+        };
 
         var crashdata = [];
         document.write("We ARE HERE")
@@ -55,30 +40,19 @@
             $.getJSON('https://scidriver.herokuapp.com/static/crashdata.json', function (data) {
                 $.each(data.crash, function (i, f) {
                     var latLng = [f.LAT, f.LON];
-<<<<<<< HEAD
                     crashdata.append(latLng);
                 });
             });
         });
-
-=======
-                    document.write(f.LAT);
-                    crashdata.push(latLng);
-                });
-            });
-        });
         document.write(crashdata)
->>>>>>> bbeb28693bcd50e040e27cc768c96413e5fca028
         eqfeed_callback(crashdata)
-      }
-
-      function eqfeed_callback(results) {
-        var heatmapData = [];
-        for (var i = 0; i < results.length; i++) {
-          var coords = results[i];
-          var latLng = new google.maps.LatLng(coords[0], coords[1]);
-          heatmapData.push(latLng);
-        }
+        function eqfeed_callback(results) {
+            var heatmapData = [];
+            for (var i = 0; i < results.length; i++) {
+                var coords = results[i];
+                var latLng = new google.maps.LatLng(coords[0], coords[1]);
+                heatmapData.push(latLng);
+            }
         var heatmap = new google.maps.visualization.HeatmapLayer({
           data: heatmapData,
           dissipating: false,
