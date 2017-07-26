@@ -42,15 +42,17 @@
         });
 
         var crashdata = [];
+        document.write("We ARE HERE")
         $(function () {
             $.getJSON('https://scidriver.herokuapp.com/static/crashdata.json', function (data) {
                 $.each(data.crash, function (i, f) {
                     var latLng = [f.LAT, f.LON];
-                    document.write(f.LAT)
+                    document.write(f.LAT);
                     crashdata.push(latLng);
                 });
             });
         });
+        document.write(crashdata)
         eqfeed_callback(crashdata)
       }
 
