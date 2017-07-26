@@ -28,7 +28,7 @@
         var map;
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 5,
+                zoom: 8,
                 center: {lat: 32, lng: -82},
                 mapTypeId: 'terrain'
             });
@@ -46,14 +46,15 @@
         var heatmap = new google.maps.visualization.HeatmapLayer({
           data: heatmapData,
           dissipating: false,
-          radius: .01,
+          radius: .05,
           map: map
         });
-        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        var iconBase = 'https://scidriver.herokuapp.com/static/red_star.png';
         heatmapData.forEach(function (feature) {
             var marker = new google.maps.Marker({
                 position: feature,
-                icon: iconBase + 'info-i_maps.png',
+                icon: iconBase,
+                label:'Crash'
                 map: map
             });
         });
