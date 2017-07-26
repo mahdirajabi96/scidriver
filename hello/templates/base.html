@@ -46,15 +46,16 @@
         var heatmap = new google.maps.visualization.HeatmapLayer({
           data: heatmapData,
           dissipating: false,
-          radius: .05,
+          radius: .1,
           map: map
         });
         var iconBase = 'https://scidriver.herokuapp.com/static/red_star.png';
+
         heatmapData.forEach(function (feature) {
             var marker = new google.maps.Marker({
                 position: feature,
                 icon: iconBase,
-                label:'Crash'
+                label:'Crash',
                 map: map
             });
         });
