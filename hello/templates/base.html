@@ -46,8 +46,16 @@
         var heatmap = new google.maps.visualization.HeatmapLayer({
           data: heatmapData,
           dissipating: false,
-          radius: .1,
+          radius: .01,
           map: map
+        });
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        heatmapData.forEach(function (feature) {
+            var marker = new google.maps.Marker({
+                position: feature,
+                icon: iconBase + 'info-i_maps.png',
+                map: map
+            });
         });
       }
     </script>
