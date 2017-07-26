@@ -19,39 +19,10 @@
     </style>
     <script>
 
-    $(function() {
 
-
-   var people = [];
-
-   $.getJSON('https://scidriver.herokuapp.com/static/latlongdata.json', function (data) {
-       $.each(data.person, function(i, f) {
-          var tblRow = "<tr>" + "<td>" + f.firstName + "</td>" +
-           "<td>" + f.lastName + "</td>" + "<td>" + f.job + "</td>" + "<td>" + f.roll + "</td>" + "</tr>"
-           $(tblRow).appendTo("#userdata tbody");
-     });
-
-   });
-
-});
     </script>
 </head>
 <body>
-
-    <div class="wrapper">
-        <div class="profile">
-            <table id="userdata" border="2">
-                <thead>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email Address</th>
-                <th>City</th>
-                </thead>
-                <tbody></tbody>
-            </table>
-
-        </div>
-    </div>
 
     <!--
         
@@ -61,9 +32,15 @@
 
     <div id="map"></div>
     <script>
-        var a = $.getJSON("/latlongdata.json", a);
-        
-        document.write(a.latlon);
+        $(function () {
+            var crashdata = [];
+            $.getJSON('https://scidriver.herokuapp.com/static/crashdata.json', function (data) {
+                $.each(data.crash, function (i, f) {
+                    var latLng = [f.LAT, f.LON];
+                    crashdata.push(latLng);
+                });
+            });
+        });
 
         var map;
       function initMap() {
@@ -72,23 +49,7 @@
           center: {lat: 31, lng: -98},
           mapTypeId: 'terrain'
         });
-
-
-
-        eqfeed_callback(
-[[	29.40039501	,	-98.53053921	],
-[	32.8036943	,	-98.08794224	],
-[	30.78142357	,	-94.41526794	],
-[	30.77521626	,	-94.42949304	],
-[	30.76702864	,	-94.41515964	],
-[	30.77439512	,	-94.41490525	],
-[	30.76928472	,	-94.41492335	],
-[	32.63319645	,	-96.83694983	],
-[	33.18508097	,	-96.63964423	]]
-
-            )
-
-
+        eqfeed_callback(crashdata)
       }
 
       function eqfeed_callback(results) {
