@@ -32,20 +32,10 @@
                 center: {lat: 32, lng: -82},
                 mapTypeId: 'terrain'
             });
-        };
-
-        var crashdata = [];
-        document.write("We ARE HERE")
-        $(function () {
-            $.getJSON('https://scidriver.herokuapp.com/static/crashdata.json', function (data) {
-                $.each(data.crash, function (i, f) {
-                    var latLng = [f.LAT, f.LON];
-                    crashdata.append(latLng);
-                });
-            });
-        });
-        document.write(crashdata)
-        eqfeed_callback(crashdata)
+        }
+        var script = document.createElement('script');
+        script.src = 'https://scidriver.herokuapp.com/static/crashdata.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
         function eqfeed_callback(results) {
             var heatmapData = [];
             for (var i = 0; i < results.length; i++) {
