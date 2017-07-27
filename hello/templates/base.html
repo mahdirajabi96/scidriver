@@ -33,10 +33,10 @@
             });
         }
 
-        //var script = document.createElement('script');
-        //script.src = 'https://scidriver.herokuapp.com/static/TXLOC2016_1.js';
-        //document.getElementsByTagName('head')[0].appendChild(script);
-        eqfeed_callback({ "Latitude": [32, 33], "Longitude": [-98, -99] });
+        var script = document.createElement('script');
+        script.src = 'https://scidriver.herokuapp.com/static/TXLOC2016_1.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
+        
         function eqfeed_callback(results) {
             var heatmapData = [];
             var lat = results.Latitude;
