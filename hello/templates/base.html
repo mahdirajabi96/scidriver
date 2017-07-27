@@ -20,7 +20,7 @@
     <script>
     var txcrash1 = [];
     $(function() {
-        $.getJSON('static/TXLOC2016_1.json', function (result) {
+        $.getJSON('https://scidriver.herokuapp.com/static/TXLOC2016_1.json', function (result) {
             $.each(result, function (i, field) {
                 txcrash1.append(field);
             });
