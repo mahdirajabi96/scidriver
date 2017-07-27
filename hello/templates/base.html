@@ -69,8 +69,8 @@
         script.src = 'https://scidriver.herokuapp.com/static/SCLOC2016.js';
         document.getElementsByTagName('head')[0].appendChild(script);
 
+        var heatmapData = [];
         function eqfeed_callback(results) {
-            var heatmapData = [];
             var lat = results.Latitude;
             var lon = results.Longitude;
             for (var i = 0; i < lat.length; i++) {
