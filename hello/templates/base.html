@@ -17,16 +17,6 @@
              padding: 0;
          }
     </style>
-    <script>
-        var txcrash1 = JSON.stringify('https://scidriver.herokuapp.com/static/TXLOC2016_1.json', null, 4)
-    $(function() {
-        $.getJSON('https://scidriver.herokuapp.com/static/TXLOC2016_1.json', function (result) {
-            $.each(result, function (i, field) {
-                txcrash1.append(field);
-            });
-        });
-    });
-    </script>
 </head>
 <body>
     {% block content %}{% endblock %}
@@ -44,13 +34,15 @@
         }
 
         var script = document.createElement('script');
-        script.src = 'https://scidriver.herokuapp.com/static/crashdata.js';
+        script.src = 'https://scidriver.herokuapp.com/static/TXLOC2016_1.js';
         document.getElementsByTagName('head')[0].appendChild(script);
 
         function eqfeed_callback(results) {
             var heatmapData = [];
-            for (var i = 0; i < results.length; i++) {
-                var coords = results[i];
+            var lat = results.Latitude;
+            var lon = results.Longitude;
+            for (var i = 0; i < lat.length; i++) {
+                var coords = [lat[i],lon[i]];
                 var latLng = new google.maps.LatLng(coords[0], coords[1]);
                 heatmapData.push(latLng);
             }
