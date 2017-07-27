@@ -70,11 +70,6 @@
         script.src = 'https://scidriver.herokuapp.com/static/SCLOC2016.js';
         document.getElementsByTagName('head')[0].appendChild(script);
 
-        var script = document.createElement('script');
-        script.src = "drawheatmap(heatmapData, 0.05)"
-        document.getElementsByTagName('head')[0].appendChild(script);
-        
-
         function eqfeed_callback(results) {
             
             var lat = results.Latitude;
@@ -84,16 +79,14 @@
                 var latLng = new google.maps.LatLng(coords[0], coords[1]);
                 heatmapData.push(latLng);
             }
-        }
-        function drawheatmap(heatmapData, radius) {
             var heatmap = new google.maps.visualization.HeatmapLayer({
                 data: heatmapData,
                 dissipating: false,
                 radius: radius,
                 map: map
             });
-
         }
+
     </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_4Q-IAnHrf2Vy4p78pw0PbobJNP61JE4&libraries=visualization&callback=initMap">
