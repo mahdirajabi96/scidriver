@@ -19,13 +19,9 @@
     </style>
 </head>
 <body>
-    <!--{% block content %}{% endblock %}-->
     <h1>Crash Heatmap</h1>
     <p>This page shows the heatmap for highway crashes. </p>
-
     <div id="map"></div>
-
-
     <script>
         var map;
         function initMap() {
@@ -53,16 +49,6 @@
           radius: .1,
           map: map
         });
-        
-        //var iconBase = 'https://scidriver.herokuapp.com/static/red_star.png';
-        //heatmapData.forEach(function (feature) {
-        //    var marker = new google.maps.Marker({
-        //        position: feature,
-        //        icon: iconBase,
-        //        label:'',
-        //        map: map
-        //    });
-        //});
       }
     </script>
     <script async defer
