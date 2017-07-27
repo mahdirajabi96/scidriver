@@ -20,8 +20,8 @@
 </head>
 <body>
     <!--{% block content %}{% endblock %}-->
-    <h1>Texas Crash Heatmap</h1>
-    <p>This page shows the heatmap for a sample of Texas highway crashes for 2015 crash database. The heatmaps will be used in this project to show the clusters of similar crashes (or hotspots). </p>
+    <h1>Crash Heatmap</h1>
+    <p>This page shows the heatmap for highway crashes. </p>
 
     <div id="map"></div>
     <script>
@@ -33,6 +33,18 @@
                 mapTypeId: 'terrain'
             });
         }
+
+        var txtFile = new XMLHttpRequest();
+        txtFile.open("GET", "https://scidriver.herokuapp.com/static/TXLOC2016.csv", true);
+        txtFile.onreadystatechange = function () {
+            if (txtFile.readyState === 4) {  // Makes sure the document is ready to parse.
+                if (txtFile.status === 200) {  // Makes sure it's found the file.
+                    allText = txtFile.responseText;
+                    lines = txtFile.responseText.split("\r\n"); // Will separate each line into an array
+                } 
+            }
+        }
+        document.write(lines[0])
         var script = document.createElement('script');
         script.src = 'https://scidriver.herokuapp.com/static/crashdata.js';
         document.getElementsByTagName('head')[0].appendChild(script);
