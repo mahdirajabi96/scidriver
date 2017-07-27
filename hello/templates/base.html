@@ -18,7 +18,7 @@
          }
     </style>
     <script>
-    var txcrash1 = [];
+        var txcrash1 = JSON.stringify('https://scidriver.herokuapp.com/static/TXLOC2016_1.json', null, 4)
     $(function() {
         $.getJSON('https://scidriver.herokuapp.com/static/TXLOC2016_1.json', function (result) {
             $.each(result, function (i, field) {
