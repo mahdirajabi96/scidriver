@@ -17,21 +17,6 @@
              padding: 0;
          }
     </style>
-    <script>
-        var lines = [];
-        var txtFile = new XMLHttpRequest();
-        txtFile.open("GET", "https://scidriver.herokuapp.com/static/TXLOC2016.csv", true);
-        txtFile.onreadystatechange = myfun;
-        function myfun() {
-            if (txtFile.readyState === 4) {  // Makes sure the document is ready to parse.
-                if (txtFile.status === 200) {  // Makes sure it's found the file.
-                    var allText = txtFile.responseText;
-                    lines = txtFile.responseText.split("\r\n"); // Will separate each line into an array
-                }
-            }
-        }
-        document.write(lines.length);
-    </script>
 </head>
 <body>
     <!--{% block content %}{% endblock %}-->
@@ -50,9 +35,11 @@
                 mapTypeId: 'terrain'
             });
         }
+
         var script = document.createElement('script');
         script.src = 'https://scidriver.herokuapp.com/static/crashdata.js';
         document.getElementsByTagName('head')[0].appendChild(script);
+
         function eqfeed_callback(results) {
             var heatmapData = [];
             for (var i = 0; i < results.length; i++) {
