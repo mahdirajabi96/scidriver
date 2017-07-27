@@ -44,7 +44,8 @@
                 } 
             }
         }
-        document.write(lines[0])
+        document.write(lines.length);
+
         var script = document.createElement('script');
         script.src = 'https://scidriver.herokuapp.com/static/crashdata.js';
         document.getElementsByTagName('head')[0].appendChild(script);
