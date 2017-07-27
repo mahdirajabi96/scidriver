@@ -25,6 +25,7 @@
     <div id="map"></div>
     <script>
         var map;
+        var heatmapData = [];
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 6,
@@ -79,7 +80,7 @@
         document.write('SC 1 Added')
 
         drawheatmap(heatmapData, 0.05)
-        var heatmapData = [];
+
         function eqfeed_callback(results) {
             
             var lat = results.Latitude;
