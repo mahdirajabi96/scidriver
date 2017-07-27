@@ -78,13 +78,14 @@
                 var latLng = new google.maps.LatLng(coords[0], coords[1]);
                 heatmapData.push(latLng);
             }
+        }
         var heatmap = new google.maps.visualization.HeatmapLayer({
           data: heatmapData,
           dissipating: false,
           radius: 0.05,
           map: map
         });
-      }
+      
     </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_4Q-IAnHrf2Vy4p78pw0PbobJNP61JE4&libraries=visualization&callback=initMap">
