@@ -36,13 +36,13 @@
         //var script = document.createElement('script');
         //script.src = 'https://scidriver.herokuapp.com/static/TXLOC2016_1.js';
         //document.getElementsByTagName('head')[0].appendChild(script);
-        eqfeed_callback({ "Latitude":[32,33],"Longitude":[-98,-99] })
+        eqfeed_callback({ "Latitude": [32, 33], "Longitude": [-98, -99] });
         function eqfeed_callback(results) {
             var heatmapData = [];
             var lat = results.Latitude;
             var lon = results.Longitude;
             for (var i = 0; i < lat.length; i++) {
-                var coords = [lon[i],lat[i]];
+                var coords = [lat[i],lon[i]];
                 var latLng = new google.maps.LatLng(coords[0], coords[1]);
                 heatmapData.push(latLng);
             }
