@@ -17,6 +17,14 @@
              padding: 0;
          }
     </style>
+    <script>
+    var txcrash1 = [];
+    $(function() {
+        $.getJSON('TXLOC2016_1.json', function (data) {
+            txcrash1 = [lat,lon];
+        });
+    });
+    </script>
 </head>
 <body>
     {% block content %}{% endblock %}
