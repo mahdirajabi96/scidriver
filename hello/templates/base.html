@@ -20,8 +20,10 @@
     <script>
     var txcrash1 = [];
     $(function() {
-        $.getJSON('static/TXLOC2016_1.json', function (data) {
-            txcrash1 = data;
+        $.getJSON('static/TXLOC2016_1.json', function (result) {
+            $.each(result, function (i, field) {
+                txcrash1.append(field);
+            });
         });
     });
     </script>
