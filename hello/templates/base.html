@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    {% block content %}{% endblock %}
+    <!--{% block content %}{% endblock %}-->
     <h1>Crash Heatmap</h1>
     <p>This page shows the heatmap for highway crashes. </p>
     <div id="map"></div>
@@ -63,6 +63,10 @@
 
         var script = document.createElement('script');
         script.src = 'https://scidriver.herokuapp.com/static/NCLOC2016_2.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
+
+        var script = document.createElement('script');
+        script.src = 'https://scidriver.herokuapp.com/static/SCLOC2016.js';
         document.getElementsByTagName('head')[0].appendChild(script);
 
         function eqfeed_callback(results) {
